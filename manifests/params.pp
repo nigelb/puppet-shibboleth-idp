@@ -4,13 +4,6 @@ class shibboleth_idp::params (
 	$shib_base = "/opt/shibboleth-idp",
 	$install_dir = "install",
 	$version = "2.3.8",
-	$user = $osfamily?{
-		"RedHat" => "tomcat"
-	},
-	$group = $osfamily?{
-		"RedHat" => "tomcat"
-	},
 )
 {
-	
 }

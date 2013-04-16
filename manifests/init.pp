@@ -29,15 +29,11 @@ class shibboleth_idp(
 
 	file { $shibboleth_idp::params::shib_base:
 		ensure => "directory",
-		owner  => $shibboleth_idp::params::user,
-		group  => $shibboleth_idp::params::group,
 		alias  => "idp-base-dir",
 	}
 
 	file { $install_dir:
 		ensure => "directory",
-		owner  => $shibboleth_idp::params::user,
-		group  => $shibboleth_idp::params::group,
 		alias  => "idp-install-dir",
 		require=> File['idp-base-dir']
 	}
@@ -100,8 +96,6 @@ class shibboleth_idp(
 		force  => true,
 		ensure => "link",
 		target => "${shibboleth_idp::params::shib_base}/conf",
-		owner  => $shibboleth_idp::params::user,
-		group  => $shibboleth_idp::params::group,
 	}
 
 	file{'/var/log/shibboleth-idp':
@@ -109,8 +103,6 @@ class shibboleth_idp(
 		force  => true,
 		ensure => "link",
 		target => "${shibboleth_idp::params::shib_base}/logs",
-		owner  => $shibboleth_idp::params::user,
-		group  => $shibboleth_idp::params::group,
 	}
 	
 
